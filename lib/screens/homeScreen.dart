@@ -11,7 +11,7 @@ class homeScreen extends StatelessWidget {
     return LayoutBuilder(builder: (context,constraints){
       if(constraints.maxWidth > 950){
         return Desktoplayout();
-      }else if(constraints.maxWidth >600){
+      }else if(constraints.maxWidth >500){
         return Tabletlayout();
       }else{
         return Mobilelayout();
