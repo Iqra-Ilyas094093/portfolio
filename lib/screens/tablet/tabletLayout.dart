@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/styles.dart';
+import '../widgets/CountWidget.dart';
 import '../widgets/TextHeaderWidget.dart';
 import '../widgets/dowloadCv.dart';
 import '../widgets/imageWidget.dart';
@@ -19,38 +20,65 @@ class Tabletlayout extends StatelessWidget {
         width: double.infinity,
         decoration: Styles.decoration,
         child: SingleChildScrollView(
-          child: Container(
-            color: Colors.red,
-            margin: EdgeInsets.symmetric(vertical: size.height * 0.18 ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
+            children: [
+              Container(
+                color: Colors.red,
+                margin: EdgeInsets.symmetric(vertical: size.height * 0.18 ),
+                child: Column(
                   children: [
-                    Column(
+                    Row(
                       mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextHeaderWidget(size: size,),
-                        const SizedBox(height: 20,),
-                        socialTab(size: size,),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextHeaderWidget(size: size,),
+                            const SizedBox(height: 20,),
+                            socialTab(size: size,),
+                          ],
+                        ),
+                        Expanded(child: Container(
+                          color: Colors.pinkAccent,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ImageWidget(),
+                            ],
+                          ),
+                        ))
                       ],
                     ),
-                    Expanded(child: Container(
-                      color: Colors.pinkAccent,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ImageWidget(),
-                        ],
-                      ),
-                    ))
+
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+              Container(
+                // margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Countwidget(size: size, text1: '14', text2: 'Years of', text3: 'Experience'),
+                        Countwidget(size: size, text1: '50+', text2: 'Projects', text3: 'Completed'),
+                      ],
+                    ),
+                    SizedBox(height: size.height * 0.05,),
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                       children: [
+                         Countwidget(size: size, text1: '1.5k', text2: 'Happy', text3: 'Customers'),
+                         Countwidget(size: size, text1: '1M', text2: 'Awesome', text3: 'Reviews'),
+                       ],
+                     )
+                     ],
+                ),
+              )
+            ],
           ),
         ),
       ),

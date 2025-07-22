@@ -15,14 +15,14 @@ class Dowloadcv extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.yellow,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.studio),
+        border: Border.all(color: AppColors.paleSlate),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Download CV',style: TextStyle(color: AppColors.studio),),
+          Text('Download CV',style: TextStyle(color: Colors.white),),
           SizedBox.square(dimension: 10,),
-          FaIcon(FontAwesomeIcons.download,color: AppColors.studio,size: 18,)
+          FaIcon(FontAwesomeIcons.download,color: Colors.white,size: 18,)
         ],
       ),
     );

@@ -17,7 +17,7 @@ class TextHeaderWidget extends StatelessWidget {
         horizontal: size.width * 0.07,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: size.width>600? CrossAxisAlignment.start:CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
