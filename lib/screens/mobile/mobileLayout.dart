@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
+import '../../constants/colors.dart';
 import '../../constants/styles.dart';
 import '../tablet/tabletLayout.dart';
 import '../widgets/CountWidget.dart';
 import '../widgets/TextHeaderWidget.dart';
 import '../widgets/imageWidget.dart';
+import '../widgets/myServicesWidget.dart';
 
 class Mobilelayout extends StatelessWidget {
   const Mobilelayout({super.key});
@@ -76,7 +79,32 @@ class Mobilelayout extends StatelessWidget {
                     )
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: size.height * 0.05,),
+              Container(
+                width: double.infinity,
+                color: AppColors.ebony,
+                child: Column(
+                  children: [
+                    SizedBox(height: size.height * 0.02,),
+                    GradientText('My Quality Services', colors: [AppColors.studio, AppColors.paleSlate],
+                      style: TextStyle(
+                        fontSize: size.width * 0.040,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    SizedBox(height: size.height * 0.02,),
+                    Text('We put our ideas and your wishes in the form of a unique project to elaborate our work for you.',style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: size.width* 0.02,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),),
+                    SizedBox(height: size.height * 0.02,),
+                    Myserviceswidget(size: size),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

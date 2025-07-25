@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
+import '../../constants/colors.dart';
 import '../../constants/styles.dart';
 import '../widgets/CountWidget.dart';
 import '../widgets/TextHeaderWidget.dart';
 import '../widgets/dowloadCv.dart';
 import '../widgets/imageWidget.dart';
+import '../widgets/myServicesWidget.dart';
 import '../widgets/socialIconsWidget.dart';
-import '../widgets/socialSectionWidget.dart';
+import           '../widgets/socialSectionWidget.dart';
 
 class Tabletlayout extends StatelessWidget {
   const Tabletlayout({super.key});
@@ -24,7 +27,7 @@ class Tabletlayout extends StatelessWidget {
             children: [
               Container(
                 color: Colors.red,
-                margin: EdgeInsets.symmetric(vertical: size.height * 0.18 ),
+                margin: EdgeInsets.only(top: size.height * 0.18,bottom: size.height * 0.08 ),
                 child: Column(
                   children: [
                     Row(
@@ -57,6 +60,7 @@ class Tabletlayout extends StatelessWidget {
                 ),
               ),
               Container(
+                color: Colors.blue,
                 // margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),
                 child: Column(
                   children: [
@@ -77,7 +81,32 @@ class Tabletlayout extends StatelessWidget {
                      )
                      ],
                 ),
-              )
+              ),
+              SizedBox(height: size.height * 0.08,),
+              Container(
+                width: double.infinity,
+                color: AppColors.ebony,
+                child: Column(
+                  children: [
+                    SizedBox(height: size.height * 0.02,),
+                    GradientText('My Quality Services', colors: [AppColors.studio, AppColors.paleSlate],
+                      style: TextStyle(
+                        fontSize: size.width * 0.040,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    SizedBox(height: size.height * 0.02,),
+                    Text('We put our ideas and your wishes in the form of a unique project to elaborate our work for you.',style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: size.width* 0.012,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),),
+                    SizedBox(height: size.height * 0.05,),
+                    Myserviceswidget(size: size),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

@@ -3,6 +3,7 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/styles.dart';
 import 'package:portfolio/screens/tablet/tabletLayout.dart';
 import 'package:portfolio/screens/widgets/CountWidget.dart';
+import 'package:portfolio/screens/widgets/customTabBar.dart';
 import 'package:portfolio/screens/widgets/imageWidget.dart';
 import 'package:portfolio/screens/widgets/myServicesWidget.dart';
 import 'package:portfolio/screens/widgets/socialSectionWidget.dart';
@@ -10,8 +11,30 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 import '../widgets/TextHeaderWidget.dart';
 
-class Desktoplayout extends StatelessWidget {
-  const Desktoplayout({super.key});
+class Desktoplayout extends StatefulWidget {
+
+  Desktoplayout({super.key});
+
+  @override
+  State<Desktoplayout> createState() => _DesktoplayoutState();
+}
+
+class _DesktoplayoutState extends State<Desktoplayout> with SingleTickerProviderStateMixin{
+ late TabController tabController;
+
+ @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController = TabController(length: 4, vsync:this);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    tabController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +91,7 @@ class Desktoplayout extends StatelessWidget {
                 color: AppColors.ebony,
                 child: Column(
                   children: [
+                    SizedBox(height: size.height * 0.02,),
                     GradientText('My Quality Services', colors: [AppColors.studio, AppColors.paleSlate],
                       style: TextStyle(
                         fontSize: size.width * 0.040,
@@ -85,6 +109,28 @@ class Desktoplayout extends StatelessWidget {
                     Myserviceswidget(size: size),
                   ],
                 ),
+              ),
+              SizedBox(height: size.height * 0.18,),
+              Container(
+                width: size.width,
+
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GradientText('Recent Works', colors: [AppColors.revolver, AppColors.valhalla],
+                      style: TextStyle(
+                        fontSize: size.width * 0.040,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    SizedBox(height: size.height * 0.04,),
+                    CustomtabBar(tabController: tabController,),
+                  ],
+                ),
+              ),
+              Container(
+                height: size.height,
+                child: customTabBarView(tabController: tabController),
               )
 
             ],
